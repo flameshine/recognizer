@@ -13,6 +13,7 @@ import net.sourceforge.tess4j.Tesseract;
 public class Application {
 
     // TODO: come up with idea how to re-locate the .dylib file
+    // TODO: add various graphic file formats support
     public static void main(String... args) {
         SpringApplication.run(Application.class, args);
     }

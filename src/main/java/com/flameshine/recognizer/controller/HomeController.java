@@ -1,7 +1,5 @@
 package com.flameshine.recognizer.controller;
 
-import java.io.IOException;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,7 +34,7 @@ public class HomeController {
     }
 
     @PostMapping
-    public ModelAndView home(@RequestParam("file") MultipartFile file) throws TesseractException, IOException {
+    public ModelAndView home(@RequestParam("file") MultipartFile file) throws TesseractException {
         return new ModelAndView("/result")
             .addObject("result", service.recognize(file));
     }
