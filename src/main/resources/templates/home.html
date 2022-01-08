@@ -7,7 +7,7 @@
 <div class="container">
   <div class="alert alert-dark" th:if="${message}" th:utext="${message}"/>
   <form method="post" th:action="@{/home}" enctype="multipart/form-data">
-    <input type="file" name="file"/>
+    <input type="file" name="file" accept=".png"/>
     <br/>
     <button class="btn btn-dark" type="submit">
       Submit

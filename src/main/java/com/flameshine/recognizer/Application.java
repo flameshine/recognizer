@@ -1,12 +1,26 @@
 package com.flameshine.recognizer;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.boot.SpringApplication;
+import net.sourceforge.tess4j.Tesseract;
+
+/**
+ * Main class that launches the application.
+ */
 
 @SpringBootApplication
 public class Application {
 
+    // TODO: come up with idea how to re-locate the .dylib file
     public static void main(String... args) {
         SpringApplication.run(Application.class, args);
+    }
+
+    @Bean
+    public Tesseract tesseract() {
+        var tesseract = new Tesseract();
+        tesseract.setDatapath("/usr/local/Cellar/tesseract/5.0.0/share/tessdata/");
+        return tesseract;
     }
 }

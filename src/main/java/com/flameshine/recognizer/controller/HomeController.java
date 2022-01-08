@@ -1,5 +1,7 @@
 package com.flameshine.recognizer.controller;
 
+import java.io.IOException;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,8 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.multipart.MultipartFile;
+import net.sourceforge.tess4j.TesseractException;
 
-import com.flameshine.recognizer.service.FileService;
+import com.flameshine.recognizer.service.RecognitionService;
 import com.flameshine.recognizer.util.Constants;
 
 /**
@@ -20,10 +23,10 @@ import com.flameshine.recognizer.util.Constants;
 @RequestMapping({ "/", Constants.HOME_PATH })
 public class HomeController {
 
-    private final FileService service;
+    private final RecognitionService service;
 
     @Autowired
-    public HomeController(FileService service) {
+    public HomeController(RecognitionService service) {
         this.service = service;
     }
 
@@ -33,11 +36,8 @@ public class HomeController {
     }
 
     @PostMapping
-    public ModelAndView home(@RequestParam("file") MultipartFile file) {
-
-        service.handle(file);
-        
-        return new ModelAndView(Constants.HOME_PATH)
-            .addObject("message", String.format("File '%s' has been uploaded successfully", file.getName()));
+    public ModelAndView home(@RequestParam("file") MultipartFile file) throws TesseractException, IOException {
+        return new ModelAndView("/result")
+            .addObject("result", service.recognize(file));
     }
 }

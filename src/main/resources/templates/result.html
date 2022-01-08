@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <div th:replace="/fragments/header :: header"/>
+</head>
+<body>
+<div class="container">
+  <span th:text="${result}"/>
+  <a th:href="@{/home}">
+    Back
+  </a>
+</div>
+<div th:replace="/fragments/footer :: footer"/>
+</body>
+</html>
