@@ -1,3 +1,3 @@
 # recognizer
 
-<h3>A simple web application that recognizes text from a user-uploaded file.</h3>
+<h3>Web application that recognizes text from a user-uploaded file.</h3>
