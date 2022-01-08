@@ -10,7 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.multipart.MultipartFile;
 import net.sourceforge.tess4j.TesseractException;
 
-import com.flameshine.recognizer.service.RecognitionService;
+import com.flameshine.recognizer.service.Recognizer;
+import com.flameshine.recognizer.service.Converter;
 import com.flameshine.recognizer.util.Constants;
 
 /**
@@ -21,11 +22,13 @@ import com.flameshine.recognizer.util.Constants;
 @RequestMapping({ "/", Constants.HOME_PATH })
 public class HomeController {
 
-    private final RecognitionService service;
+    private final Recognizer recognizer;
+    private final Converter converter;
 
     @Autowired
-    public HomeController(RecognitionService service) {
-        this.service = service;
+    public HomeController(Recognizer recognizer, Converter converter) {
+        this.recognizer = recognizer;
+        this.converter = converter;
     }
 
     @GetMapping
@@ -35,7 +38,12 @@ public class HomeController {
 
     @PostMapping
     public ModelAndView home(@RequestParam("file") MultipartFile file) throws TesseractException {
+
+        var text = recognizer.recognize(
+            converter.convert(file)
+        );
+
         return new ModelAndView("/result")
-            .addObject("result", service.recognize(file));
+            .addObject("text", text);
     }
 }

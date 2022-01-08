@@ -12,6 +12,8 @@ import net.sourceforge.tess4j.Tesseract;
 @SpringBootApplication
 public class Application {
 
+    // TODO: add 'file is not present' case handling
+    // TODO: cover the logic with corresponding unit-tests
     // TODO: come up with idea how to re-locate the .dylib file
     // TODO: add various graphic file formats support
     public static void main(String... args) {

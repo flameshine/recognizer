@@ -1,21 +1,23 @@
-package com.flameshine.recognizer.util;
+package com.flameshine.recognizer.service.impl;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.flameshine.recognizer.service.Converter;
+
 /**
- * Auxiliary utility that converts {@link MultipartFile} to {@link File}.
+ * Implementation of {@link Converter}.
  */
 
-public final class FileConverter {
+@Service
+public class ConverterImpl implements Converter {
 
-    private FileConverter() {}
-
-    // TODO: consider ways prettifying this
-    public static File convert(MultipartFile multipartFile) {
+    @Override
+    public File convert(MultipartFile multipartFile) {
 
         try {
 
