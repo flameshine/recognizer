@@ -1,7 +1,7 @@
 group = "com.flameshine"
 version = "1.0-SNAPSHOT"
 
-description = "To be added..."
+description = "Web application that recognizes text from a user-uploaded file."
 
 plugins {
     java
