@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <div th:replace="/fragments/header :: header"/>
+</head>
+<body>
+<div class="container">
+  <div class="alert alert-dark" th:if="${message}" th:utext="${message}"/>
+  <form method="post" th:action="@{/home}" enctype="multipart/form-data">
+    <input type="file" name="file"/>
+    <br/>
+    <button class="btn btn-dark" type="submit">
+      Submit
+    </button>
+  </form>
+</div>
+<div th:replace="/fragments/footer :: footer"/>
+</body>
+</html>

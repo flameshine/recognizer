@@ -21,6 +21,7 @@ val springBootVersion = "2.6.2"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}")
     implementation("net.sourceforge.tess4j:tess4j:5.0.0")
 }
 
