@@ -6,6 +6,7 @@ import java.io.UncheckedIOException;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.apache.commons.io.FilenameUtils;
 import lombok.extern.slf4j.Slf4j;
 
 import com.flameshine.recognizer.service.Converter;
@@ -23,7 +24,11 @@ public class ConverterImpl implements Converter {
 
         try {
 
-            var file = File.createTempFile("temporary", ".png");
+            var extension = FilenameUtils.getExtension(
+                multipartFile.getOriginalFilename()
+            );
+
+            var file = File.createTempFile("temporary", "." + extension);
 
             log.info("Created a temporary file: {}", file.getAbsolutePath());
 
