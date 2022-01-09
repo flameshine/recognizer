@@ -22,8 +22,6 @@ public class Application {
         this.datapath = datapath;
     }
 
-    // TODO: come up with idea how to re-locate the .dylib file
-    // TODO: cover the logic with corresponding unit-tests
     public static void main(String... args) {
         SpringApplication.run(Application.class, args);
     }
