@@ -6,4 +6,4 @@
 
 To run the app, you should add this options to your run configuration:
 
-'''-Djna.library.path=<path to the project>/src/main/resources/libs/'''
+```-Djna.library.path=<path to the project>/src/main/resources/libs/```
