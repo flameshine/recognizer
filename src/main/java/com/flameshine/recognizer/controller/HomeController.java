@@ -39,6 +39,11 @@ public class HomeController {
     @PostMapping
     public ModelAndView home(@RequestParam("file") MultipartFile file) throws TesseractException {
 
+        if (file == null || file.isEmpty()) {
+            return new ModelAndView(Constants.HOME_PATH)
+                .addObject("message", "Invalid input");
+        }
+
         var text = recognizer.recognize(
             converter.convert(file)
         );

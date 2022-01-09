@@ -2,7 +2,10 @@ package com.flameshine.recognizer;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
+import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
 
 /**
@@ -12,8 +15,15 @@ import net.sourceforge.tess4j.Tesseract;
 @SpringBootApplication
 public class Application {
 
-    // TODO: add 'file is not present' case handling
+    private final String datapath;
+
+    @Autowired
+    public Application(@Value("${tesseract.datapath}") String datapath) {
+        this.datapath = datapath;
+    }
+
     // TODO: cover the logic with corresponding unit-tests
+    // TODO: add multiple languages support
     // TODO: come up with idea how to re-locate the .dylib file
     // TODO: add various graphic file formats support
     public static void main(String... args) {
@@ -21,9 +31,9 @@ public class Application {
     }
 
     @Bean
-    public Tesseract tesseract() {
+    public ITesseract tesseract() {
         var tesseract = new Tesseract();
-        tesseract.setDatapath("/usr/local/Cellar/tesseract/5.0.0/share/tessdata/");
+        tesseract.setDatapath(datapath);
         return tesseract;
     }
 }

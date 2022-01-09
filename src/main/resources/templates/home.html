@@ -5,7 +5,7 @@
 </head>
 <body>
 <div class="container">
-  <div class="alert alert-dark" th:if="${message}" th:utext="${message}"/>
+  <label class="alert alert-danger" th:if="${message}" th:utext="${message}"/>
   <form method="post" th:action="@{/home}" enctype="multipart/form-data">
     <input type="file" name="file" accept=".png"/>
     <br/>
