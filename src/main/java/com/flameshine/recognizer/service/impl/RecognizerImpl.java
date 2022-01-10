@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import com.flameshine.recognizer.service.Recognizer;
 
 /**
- * Implementation of {@link Recognizer}.
+ * Implementation of {@link com.flameshine.recognizer.service.Recognizer}.
  */
 
 @Service
