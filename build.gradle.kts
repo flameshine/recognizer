@@ -1,7 +1,7 @@
 group = "com.flameshine"
 version = "1.0-SNAPSHOT"
 
-description = "Web application that recognizes text from a user-uploaded file."
+description = "Implementation of a simple web application that recognizes text from a user-uploaded file."
 
 plugins {
     java
@@ -24,7 +24,7 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}")
-    implementation("net.sourceforge.tess4j:tess4j:5.0.0")
+    implementation("net.sourceforge.tess4j:tess4j:5.1.0")
 
     compileOnly("org.projectlombok:lombok:${lombokVersion}")
 
