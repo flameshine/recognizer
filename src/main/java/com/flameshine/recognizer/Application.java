@@ -22,6 +22,8 @@ public class Application {
         this.datapath = datapath;
     }
 
+    // TODO: dockerize the application
+
     public static void main(String... args) {
         SpringApplication.run(Application.class, args);
     }
