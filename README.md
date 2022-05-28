@@ -1,6 +1,6 @@
 # recognizer
 
-<h3>Implementation of a simple web application that recognizes text from a user-uploaded file.</h3>
+<h3>Implementation of a simple web application that recognizes text from a user-uploaded file</h3>
 
 <h4>Important:</h4>
 
